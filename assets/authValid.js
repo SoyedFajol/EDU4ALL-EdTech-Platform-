@@ -9,7 +9,8 @@ function signValidation()
     let dob = document.getElementById('dob').value;
     let userType = document.getElementById('userType').value;
 
-    let fAlph= name.charCodeAt(0); 
+    let firstChar = name.charAt(0); 
+    let firstCharAscii = firstChar.charCodeAt(0);
 
 
     if (name==''||email==''||password==''||confirmPassword==''|| gender==''||dob==''||userType=='')
@@ -27,7 +28,7 @@ function signValidation()
         alert("name should be atleast 5 character");
         return false;
     }
-    else if(!(fAlph>=50&&fAlph<=70)&&!(fAlph<=100 &&fAlph>=90))
+    else if (!((firstCharAscii >= 65 && firstCharAscii <= 90) || (firstCharAscii >= 97 && firstCharAscii <= 122))) 
     {
         alert("name must start with letter");
         return false;
@@ -56,3 +57,4 @@ function loginValidation()
         return false;
     }
 }
+

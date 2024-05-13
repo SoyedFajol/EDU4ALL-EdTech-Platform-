@@ -2,6 +2,7 @@
   session_start();
   require_once('../models/adminInfo.php');
   
+  
   $name = $_REQUEST['name'];
   $password = $_REQUEST['password'];
   

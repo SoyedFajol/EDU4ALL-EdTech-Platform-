@@ -116,5 +116,16 @@ function updatecourse($course)
 
 }
 
+function checkDuplicateCourseName($coursename){
+    $con = getConnection();
+    $sql = "select * from courses where coursename='{$coursename}'";
+    $result = mysqli_query($con, $sql);
 
+    if(!$result) {
+        return NULL;
+    }
+
+    $user = mysqli_fetch_assoc($result);
+    return $user;
+}
  ?>

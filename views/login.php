@@ -9,46 +9,28 @@
 <html>
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="../assets/style.css" />
     
 </head>
 <body>
-        <header>
-            <h1 style="text-align:left;">EDU4ALL </h1>
-            <section style="text-align: right;">
-            <a href="signup.php">Signup</a>
-            </section>  
-        </header>
-        <main>
-        <hr></hr>
-             <form method="POST" action="../controllers/loginCheck.php">
-                <fieldset style="width: 25%;" >
-                <table style="width: 100%;">
-                <legend><h3>Login</h3></legend>
-                    <tr>
-                        <td>
-                            Name: <br>
-                            <input type="text" name="name" id="name" value="<?php echo $_COOKIE['name'];?> soyed" id="">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Password: <br>
-                            <input type="password" name="password" id="password" value="<?php echo $_COOKIE['password'];?> !1234567" id="">
-                        </td>
-                    </tr>
-                </table>
-                                <input type="checkbox" name="remember" id="">Remember Me
-                                <hr>
-                                <input type="submit" name="Login" value="Login" onclick="loginValidation()">
-                                <a href="forgetPassword.php">Forgot Password?</a>
-                    </fieldset>
-            </form>
-            <hr></hr>
-        </main>
-        <footer>
-            <h4 style="text-align: center;">Copyright©2024</h4>
-        </footer>
-        <hr></hr>
-        <script src="../assets/authValid.js"></script>
+<form method="post" action="../controllers/loginCheck.php">
+<div class="box">
+<h1>EDU4ALL</h1>
+
+<input type="text" name="name" id="name"  placeholder="Name" value="<?php echo $_COOKIE['name'];?> " id="" onFocus="field_focus(this, 'name');" onblur="field_blur(this, 'name');" class="name" />
+  
+<input type="password" name="password" id="password" placeholder="Password" value="<?php echo $_COOKIE['password'];?> " id="" onFocus="field_focus(this, 'name');" onblur="field_blur(this, 'name');" class="name" />
+  
+<input type="submit" class="btn" name="Login" value="Login" onclick="loginValidation()">
+<button type="button" class="btn2" onclick="window.location.href='signup.php';">Signup</button> 
+
+</div>
+
+</form>
+
+
+<p>Forgot your password? <u style="color:#f1c40f;">Click Here!</u></p>
+ </main>
+<script src="../assets/authValid.js"></script>
 </body>
 </html>

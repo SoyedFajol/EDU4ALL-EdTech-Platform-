@@ -1,7 +1,13 @@
 <?php
 require_once('../models/adminInfo.php');
 
+$name = $_REQUEST['name'];
 
+if(isset($_REQUEST['name'],$_REQUEST['email'],$_REQUEST['password'],$_REQUEST['confirmPassword'],
+         $_REQUEST['gender'],$_REQUEST['dob'],$_REQUEST['userType']))
+
+{
+         
 $name = $_REQUEST['name'];
 $email = $_REQUEST['email'];
 $password = $_REQUEST['password'];
@@ -10,7 +16,7 @@ $gender = $_REQUEST['gender'];
 $dob = $_REQUEST['dob'];
 $userType = $_REQUEST['userType'];
 
-
+}
 
 if (empty($name) || empty($email) || empty($password) || empty($confirmPassword) || empty($gender) || empty($dob) || empty($userType)) {
     echo "Null value!";

@@ -1,101 +1,54 @@
+<?php
+    session_start();
+    if (!isset($_COOKIE['name'], $_COOKIE['password'])) {
+        $_COOKIE['name'] = "";
+        $_COOKIE['password'] = "";
+    }
+?>
 <html>
 <head>
     <title>Signup</title>
+    <link rel="stylesheet" href="../assets/style.css" />
 </head>
-    <body>
-        <header>
-            <h1 style="text-align:left;">EDU4ALL </h1>
-            <section style="text-align: right;">
-            <a href="login.php">Login</a>         
-            </section>  
-        </header>
-        <main>
-            <hr></hr>        
-            <table width="100%">
-                <tr>
-                    <td>
-                        <form method="POST" action="../controllers/signupCheck.php" enctype="" style=" justify-content: center; align-items: center; display: flex; ">
-                            <fieldset style="width: 35%;" >
-                                <table style="width: 100%;">
-                                <legend><h3>Signup</h3></legend>
-                
-                                    <tr>
-                                        <td>
-                                            Name 
-                                        </td>
-                                        <td>
-                                            : <input type="text" name="name" id="name" value="soyed">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Email
-                                        </td>
-                                        <td>
-                                            : <input type="text" name="email" id="email" value="soyed@gmail.com">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Gender
-                                        </td>
-                                        <td>
-                                            : <input type="radio" name="gender" id="gender" value="Male">Male
-                                              <input type="radio" name="gender" id="gender" value="Female">Female
-                                              <input type="radio" name="gender" id="gender" value="Other">Other
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Date of Birth
-                                        </td>
-                                        <td>
-                                            : <input type="date" name="dob" id="dob" value="22/1/2000"> 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Password
-                                        </td>
-                                        <td>
-                                            : <input type="password" name="password" id="password" value="!1234567">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Confirm Password
-                                        </td>
-                                        <td>
-                                            : <input type="password" name="confirmPassword" id="confirmPassword" value="!1234567">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            User Type
-                                        </td>
-                                        <td>
-                                            : <input type="radio" name="userType" id="userType" value="Admin">Admin
-                                              <input type="radio" name="userType" id="userType"  value="User">User
-                                              <input type="radio" name="userType" id="userType" value="Trainer">Trainer
-                                        </td>
-                                    </tr>
-                                </table>
-                                <hr>
-                                <section style="text-align: center;">
-                                <input type="submit" name="Signup" value="Signup" onclick="signValidation()">
-                                    <input type="reset" name ="reset" value="Reset">
-                                </section>
-                            </fieldset>
-                        </form>
-                    </td>
-                </tr>
-                </table>
-                <hr>
-        </main>
-        <footer>
-            <h4 style="text-align: center;">Copyright©2024</h4>
-        </footer>
-        <hr></hr>
-        <script src="../assets/authValid.js"></script>
-    </body>
+<body>
+<form method="POST" action="../controllers/signupCheck.php">
+<div class="box">
+<h1>EDU4ALL</h1>
+
+<input type="text" name="name" id="name" placeholder="Name" value="soyed" onFocus="field_focus(this, 'name');" onblur="field_blur(this, 'name');" class="name" /><br>
+  
+<input type="text" name="email" id="email" placeholder="Email" value="soyed@gmail.com" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="name" /><br>
+
+<input type="password" name="password" id="password" placeholder="Password" onFocus="field_focus(this, 'password');" onblur="field_blur(this, 'password');" class="name" /><br>
+
+<input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" onFocus="field_focus(this, 'confirmPassword');" onblur="field_blur(this, 'confirmPassword');" class="name" /><br>
+
+<label for="dob"></label>
+<input type="text" name="dob" id="dob" placeholder="YYYY-MM-DD" value="2000-01-22" onFocus="field_focus(this, 'dob');" onblur="field_blur(this, 'dob');" class="name" /><br>
+
+<label for="gender">Gender:</label>
+<select name="gender" id="gender">
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Other">Other</option>
+</select><br>
+  
+<label for="userType">User Type:</label>
+<select name="userType" id="userType">
+    <option value="Admin">Admin</option>
+    <option value="User">User</option>
+    <option value="Trainer">Trainer</option>
+</select><br>
+
+<input type="submit" class="btn" name="Submit" value="Submit" onclick="signValidation()">
+<button type="button" class="btn2" onclick="window.location.href='login.php';">Login</button> 
+
+</div>
+
+</form>
+
+
+<p>Forgot your password? <u style="color:#f1c40f;">Click Here!</u></p>
+<script src="../assets/authValid.js"></script>
+</body>
 </html>
